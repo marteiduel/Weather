@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(66, 123, 197);
+  color: white;
+}
+
+.right-header {
+  display: flex;
+}
+
+.left-header {
+  display: flex;
+}
+.logo {
+  height: 30px;
+  width: 30px;
+}
