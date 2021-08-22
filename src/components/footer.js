@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 
-export default class App extends Component {
+export default class Footer extends Component {
   render() {
     return (
-      <div className="app">
-        <h1>DevCamp React Starter</h1>
-        <h2>React Redux Router</h2>
+      <div className="footer">
+        <h4>© 2021 Code Challenge | All rights reserved</h4>
       </div>
     );
   }

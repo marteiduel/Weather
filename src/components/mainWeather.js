@@ -59,7 +59,7 @@ export default class MainWeather extends Component {
         <div className="image-main-weather">
           <img
             className="logo-weather"
-            src="https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80"
+            src="https://lh6.googleusercontent.com/yYgTkRldFwP4TvaDpVXzEr61ydR3r_--Rxo6JW99VhZJeK2Tw-pKtRsoyQ8a-JHj54lB5ZI_LV0RboNV1ewgMWjM-BeSTX_OChjFKIqXL13zCcnJ5wbnB3YCMw-N9sc75Q=w1280"
           />
         </div>
         <div className="weather-right">

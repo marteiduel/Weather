@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Header from "./header";
 import MainWeather from "./mainWeather";
 import SearchBar from "./searchBar";
+import Cards from "./weatherCards";
+import Footer from "./footer";
 
 export default class Weather extends Component {
   constructor(props) {
@@ -26,6 +28,14 @@ export default class Weather extends Component {
         <Header />
         <SearchBar changingCity={this.changingCity} />
         <MainWeather ciudad={this.state.city} />
+        <div className="forecast-section">
+          <Cards />
+          <Cards />
+          <Cards />
+          <Cards />
+          <Cards />
+        </div>
+        <Footer />
       </div>
     );
   }
