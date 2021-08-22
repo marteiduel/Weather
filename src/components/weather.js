@@ -15,8 +15,9 @@ export default class Weather extends Component {
   }
 
   changingCity(searchbarCity) {
+    console.log(searchbarCity.description)
     this.setState({
-      city: searchbarCity,
+      city: searchbarCity.description,
     });
   }
 

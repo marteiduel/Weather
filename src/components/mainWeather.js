@@ -17,17 +17,19 @@ export default class MainWeather extends Component {
   }
 
   componentDidUpdate(propsanteriores) {
-    if (this.props.ciudad != propsanteriores.ciudad)
+    if (this.props.ciudad != propsanteriores.ciudad) {
+      console.log(this.props.ciudad)
       this.setState({ city: this.props.ciudad });
-    this.getData();
+      this.getData();
+    }
   }
 
   getData() {
     fetch(
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
-        this.state.city +
-        "&appid=" +
-        "1b08555925c4b3f206e5d97823c01850"
+      this.props.ciudad +
+      "&appid=" +
+      "1b08555925c4b3f206e5d97823c01850"
     )
       .then((response) => {
         return response.json();
