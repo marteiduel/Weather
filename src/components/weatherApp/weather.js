@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import Header from "./header";
+import Header from "../comComps/header";
 import MainWeather from "./mainWeather";
 import SearchBar from "./searchBar";
 import Cards from "./weatherCards";
-import Footer from "./footer";
+import Footer from "../comComps/footer";
 
 export default class Weather extends Component {
   constructor(props) {
@@ -17,8 +17,9 @@ export default class Weather extends Component {
   }
 
   changingCity(searchbarCity) {
+    console.log(searchbarCity.description);
     this.setState({
-      city: searchbarCity,
+      city: searchbarCity.description,
     });
   }
 
@@ -29,11 +30,11 @@ export default class Weather extends Component {
         <SearchBar changingCity={this.changingCity} />
         <MainWeather ciudad={this.state.city} />
         <div className="forecast-section">
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
+          <Cards ciudad={this.state.city} id={"1"} />
+          <Cards ciudad={this.state.city} id={"2"} />
+          <Cards ciudad={this.state.city} id={"3"} />
+          <Cards ciudad={this.state.city} id={"4"} />
+          <Cards ciudad={this.state.city} id={"5"} />
         </div>
         <Footer />
       </div>

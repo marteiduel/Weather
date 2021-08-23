@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router";
 
 export default class Header extends Component {
   render() {
@@ -7,12 +8,19 @@ export default class Header extends Component {
         <div className="right-header">
           <img
             className="logo"
-            src="https://lh6.googleusercontent.com/yYgTkRldFwP4TvaDpVXzEr61ydR3r_--Rxo6JW99VhZJeK2Tw-pKtRsoyQ8a-JHj54lB5ZI_LV0RboNV1ewgMWjM-BeSTX_OChjFKIqXL13zCcnJ5wbnB3YCMw-N9sc75Q=w1280"
+            src="https://lh5.googleusercontent.com/9S8GNlaYe55Eghd7RC8vnWwaEUNZV5Htcs25kziOO3U_VbUKdmhYL-ozLhMoreBUkK6Ev7N8S-5jE7SFmupMdYt_OsvIPAklMBuXD4aGunKn2Wd7GQLWUVeQMouAndLOaw=w1280"
           />
-          <div className="title">Weather App</div>
+          <div className="title">Current Page</div>
         </div>
         <div className="left-header">
-          <div className="current-page">Current Page: Weather App</div>
+          <div className="current-page-weather">
+            <Link to="/weather">Weather</Link>
+          </div>
+
+          <div className="current-page-tic">
+            <Link to="/tic">Tic Tac Toe</Link>
+          </div>
+
           <button className="button">
             <svg
               stroke="currentColor"

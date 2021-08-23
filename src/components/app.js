@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import { Route } from "react-router";
+import { BrowserRouter, Route } from "react-router-dom";
 
-import Weather from "./weather";
+import Weather from "./weatherApp/weather";
+import Tic from "./tictactoe/tic";
+import Header from "./comComps/header";
+import Footer from "./comComps/footer";
 
 export default class App extends Component {
   render() {
     return (
-      <div className="app">
-        <Route path="/weather">
-          <Weather />
-        </Route>
-      </div>
+      <BrowserRouter>
+        <div className="overall">
+          <Header />
+          <Route path="/weather" component={Weather} />
+          <Route path="/tic" component={Tic} />
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }

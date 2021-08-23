@@ -17,16 +17,18 @@ export default class MainWeather extends Component {
   }
 
   componentDidUpdate(propsanteriores) {
-    if (this.props.ciudad != propsanteriores.ciudad)
+    if (this.props.ciudad != propsanteriores.ciudad) {
+      console.log(this.props.ciudad);
       this.setState({ city: this.props.ciudad });
-    this.getData();
+      this.getData();
+    }
   }
 
   getData() {
     fetch(
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
-        this.state.city +
-        "&appid=" +
+        this.props.ciudad +
+        "&units=metric&appid=" +
         "1b08555925c4b3f206e5d97823c01850"
     )
       .then((response) => {
@@ -38,7 +40,7 @@ export default class MainWeather extends Component {
     console.log(data);
     this.setState({
       temp: data.list[0].main.temp,
-      precip: data.list[0].visibility.rain,
+      precip: data.list[0].main.humidity,
       high: data.list[0].main.temp_max,
       low: data.list[0].main.temp_min,
       icon: data.list[0].weather[0].icon,
@@ -59,13 +61,12 @@ export default class MainWeather extends Component {
         <div className="image-main-weather">
           <img
             className="logo-weather"
-            src="https://lh6.googleusercontent.com/yYgTkRldFwP4TvaDpVXzEr61ydR3r_--Rxo6JW99VhZJeK2Tw-pKtRsoyQ8a-JHj54lB5ZI_LV0RboNV1ewgMWjM-BeSTX_OChjFKIqXL13zCcnJ5wbnB3YCMw-N9sc75Q=w1280"
+            src={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}
           />
         </div>
         <div className="weather-right">
           <div className="city-info">
-            <p>City: {this.state.city}</p>
-            <p>State: {this.state.state}</p>
+            <p> {this.state.city}</p>
           </div>
         </div>
       </div>
