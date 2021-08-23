@@ -3,16 +3,32 @@
   justify-content: space-between;
   background-color: rgb(66, 123, 197);
   color: white;
+  height: 40px;
 }
 
 .right-header {
   display: flex;
+  align-items: center;
 }
 
 .left-header {
   display: flex;
+  align-items: center;
 }
 .logo {
   height: 30px;
   width: 30px;
+}
+.title {
+  font-size: 19px;
+}
+
+.current-page {
+  font-size: 19px;
+}
+
+button.button {
+  font-size: 20px;
+  width: 30px;
+  margin-left: 25px;
 }
