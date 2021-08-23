@@ -67,7 +67,6 @@ export default class MainWeather extends Component {
         <div className="weather-right">
           <div className="city-info">
             <p>City: {this.state.city}</p>
-            <p>State: {this.state.state}</p>
           </div>
         </div>
       </div>
