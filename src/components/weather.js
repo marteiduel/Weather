@@ -30,11 +30,11 @@ export default class Weather extends Component {
         <SearchBar changingCity={this.changingCity} />
         <MainWeather ciudad={this.state.city} />
         <div className="forecast-section">
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
+          <Cards ciudad={this.state.city} id={"1"} />
+          <Cards ciudad={this.state.city} id={"2"} />
+          <Cards ciudad={this.state.city} id={"3"} />
+          <Cards ciudad={this.state.city} id={"4"} />
+          <Cards ciudad={this.state.city} id={"5"} />
         </div>
         <Footer />
       </div>
