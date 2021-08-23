@@ -3,7 +3,42 @@ import React, { Component } from "react";
 export default class Cards extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      high: "",
+      low: "",
+    }
+    this.getData = this.getData.bind(this);
+    this.displayWeather = this.displayWeather.bind(this);
   }
+  
+  componentDidUpdate(propsanteriores) {
+    if (this.props.ciudad != propsanteriores.ciudad) {
+      console.log(this.props.ciudad)
+      this.setState({ city: this.props.ciudad });
+      this.getData();
+    }
+  }
+
+  getData() {
+    fetch(
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      this.props.ciudad +
+      "&appid=" +
+      "1b08555925c4b3f206e5d97823c01850"
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => this.displayWeather(data));
+  }
+  displayWeather(data) {
+    console.log(data);
+    this.setState({
+      high: data.list[this.props.id].main.temp_max,
+      low: data.list[this.props.id].main.temp_min,
+    });
+  }
+
   render() {
     return (
       <div className="card-section">
@@ -15,8 +50,8 @@ export default class Cards extends Component {
             </div>
           </div>
           <div className="bottom-part">
-            <p>Min: </p>
-            <p>Max: </p>
+            <p>Min: {this.state.high}</p>
+            <p>Max: {this.state.low}</p>
           </div>
         </div>
       </div>
