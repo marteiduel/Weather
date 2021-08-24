@@ -1,3 +1,4 @@
+import { ContactSupport } from "@material-ui/icons";
 import React, { Component } from "react";
 
 export default class Cards extends Component {
@@ -10,6 +11,7 @@ export default class Cards extends Component {
     };
     this.getData = this.getData.bind(this);
     this.displayWeather = this.displayWeather.bind(this);
+    this.CheckDay = this.CheckDay.bind(this);
   }
 
   componentDidUpdate(propsanteriores) {
@@ -41,12 +43,31 @@ export default class Cards extends Component {
     });
   }
 
+  CheckDay(day) {
+    var weekday = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    var dy = new Date();
+    console.log(weekday[day]);
+    if (day + dy.getDay() > 6) {
+      return weekday[day + dy.getDay() - 7];
+    } else {
+      return weekday[day + dy.getDay()];
+    }
+  }
+
   render() {
     return (
       <div className="card-section">
         <div className="card-wrapper">
           <div className="top-part">
-            <div className="day-of-week">Day of week</div>
+            <div className="day-of-week">{this.CheckDay(this.props.id)}</div>
             <div className="card-img">
               <img
                 src={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}

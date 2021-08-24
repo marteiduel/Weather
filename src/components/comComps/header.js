@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
     return (
       <div className="header">
         <div className="right-header">
-          <img
-            className="logo"
-            src="https://lh5.googleusercontent.com/9S8GNlaYe55Eghd7RC8vnWwaEUNZV5Htcs25kziOO3U_VbUKdmhYL-ozLhMoreBUkK6Ev7N8S-5jE7SFmupMdYt_OsvIPAklMBuXD4aGunKn2Wd7GQLWUVeQMouAndLOaw=w1280"
-          />
+          <img className="logo" src="./logo" />
           <div className="title">Current Page</div>
         </div>
         <div className="left-header">

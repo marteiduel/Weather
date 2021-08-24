@@ -26,7 +26,6 @@ export default class Weather extends Component {
   render() {
     return (
       <div className="app">
-        <Header />
         <SearchBar changingCity={this.changingCity} />
         <MainWeather ciudad={this.state.city} />
         <div className="forecast-section">
@@ -36,7 +35,6 @@ export default class Weather extends Component {
           <Cards ciudad={this.state.city} id={"4"} />
           <Cards ciudad={this.state.city} id={"5"} />
         </div>
-        <Footer />
       </div>
     );
   }

@@ -1,8 +1,11 @@
+.board-wrapper {
+  margin-bottom: 407px;
+}
 .game-name {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 100px;
+  margin-bottom: 99px;
 }
 .board {
   width: 30rem;
@@ -13,14 +16,14 @@
   flex-wrap: wrap;
 }
 
-.square {
+td:hover {
+  background: rgb(96, 176, 176);
+  cursor: pointer;
+}
+
+td {
   width: 10rem;
   height: 10rem;
   border: 1px solid black;
   box-sizing: border-box;
-}
-
-.square:hover {
-  background: lightcoral;
-  cursor: pointer;
 }

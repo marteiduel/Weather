@@ -66,11 +66,7 @@ export default class MainWeather extends Component {
         </div>
         <div className="weather-right">
           <div className="city-info">
-<<<<<<< HEAD:src/components/weatherApp/mainWeather.js
             <p> {this.state.city}</p>
-=======
-            <p>City: {this.state.city}</p>
->>>>>>> 38a41c660f0a11b255cfd48739b536c940b591c6:src/components/mainWeather.js
           </div>
         </div>
       </div>
