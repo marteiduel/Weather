@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const TicTacToe = () => {
-  const [turn, setTurn] = useState("x");
+  const [turn, setTurn] = useState("X");
   const [cells, setCells] = useState(Array(9).fill(""));
-  const [winner, setWinner] = useState();
+  const [player, setPlayer] = useState();
 
   const checkForWinner = (squares) => {
     let combos = {
@@ -24,18 +24,17 @@ const TicTacToe = () => {
     };
 
     for (let combo in combos) {
-      combos[combo].forEach((pattern) => {
+      combos[combo].forEach((combination) => {
         if (
-          squares[pattern[0]] === "" ||
-          squares[pattern[1]] === "" ||
-          squares[pattern[2]] === ""
+          squares[combination[0]] === "" ||
+          squares[combination[1]] === "" ||
+          squares[combination[2]] === ""
         ) {
-          // do nothing
         } else if (
-          squares[pattern[0]] === squares[pattern[1]] &&
-          squares[pattern[1]] === squares[pattern[2]]
+          squares[combination[0]] === squares[combination[1]] &&
+          squares[combination[1]] === squares[combination[2]]
         ) {
-          setWinner(squares[pattern[0]]);
+          setPlayer(squares[combination[0]]);
         }
       });
     }
@@ -43,18 +42,18 @@ const TicTacToe = () => {
 
   const handleClick = (num) => {
     if (cells[num] !== "") {
-      alert("already clicked");
+      alert("Choose another square");
       return;
     }
 
     let squares = [...cells];
 
-    if (turn === "x") {
-      squares[num] = "x";
-      setTurn("o");
+    if (turn === "O") {
+      squares[num] = "O";
+      setTurn("X");
     } else {
-      squares[num] = "o";
-      setTurn("x");
+      squares[num] = "X";
+      setTurn("O");
     }
 
     checkForWinner(squares);
@@ -62,17 +61,21 @@ const TicTacToe = () => {
   };
 
   const handleRestart = () => {
-    setWinner(null);
+    setPlayer(null);
     setCells(Array(9).fill(""));
   };
 
   const Cell = ({ num }) => {
-    return <td onClick={() => handleClick(num)}>{cells[num]}</td>;
+    return (
+      <td onClick={() => handleClick(num)}>
+        <div className="xo">{cells[num]}</div>
+      </td>
+    );
   };
 
   return (
-    <div className="container">
-      <table>
+    <div className="board-wrapper">
+      <div className="table">
         Turn: {turn}
         <tbody>
           <tr>
@@ -90,13 +93,13 @@ const TicTacToe = () => {
             <Cell num={7} />
             <Cell num={8} />
           </tr>
-        </tbody>
-      </table>
-      {winner && (
-        <a>
-          <p>{winner} is the winner!</p>
           <button onClick={() => handleRestart()}>Play Again</button>
-        </a>
+        </tbody>
+      </div>
+      {player && (
+        <div className="scoreboard">
+          <div className="score">{player}'s Wins!</div>
+        </div>
       )}
     </div>
   );

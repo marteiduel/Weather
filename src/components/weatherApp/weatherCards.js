@@ -26,7 +26,7 @@ export default class Cards extends Component {
     fetch(
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
         this.props.ciudad +
-        "&units=metric&appid=" +
+        "&units=imperial&appid=" +
         "1b08555925c4b3f206e5d97823c01850"
     )
       .then((response) => {
@@ -43,7 +43,7 @@ export default class Cards extends Component {
     });
   }
 
-  CheckDay(day) {
+  CheckDay() {
     var weekday = [
       "Sunday",
       "Monday",
@@ -54,11 +54,13 @@ export default class Cards extends Component {
       "Saturday",
     ];
     var dy = new Date();
-    console.log(weekday[day]);
-    if (day + dy.getDay() > 6) {
-      return weekday[day + dy.getDay() - 7];
+    console.log(parseInt(this.props.id) + dy.getDay());
+    if (parseInt(this.props.id) + dy.getDay() > 6) {
+      console.log(weekday[parseInt(this.props.id) + dy.getDay() - 7]);
+      return weekday[parseInt(this.props.id) + dy.getDay() - 7];
     } else {
-      return weekday[day + dy.getDay()];
+      console.log(weekday[parseInt(this.props.id) + dy.getDay()]);
+      return weekday[parseInt(this.props.id) + dy.getDay()];
     }
   }
 
@@ -67,7 +69,7 @@ export default class Cards extends Component {
       <div className="card-section">
         <div className="card-wrapper">
           <div className="top-part">
-            <div className="day-of-week">{this.CheckDay(this.props.id)}</div>
+            <div className="day-of-week">{this.CheckDay()}</div>
             <div className="card-img">
               <img
                 src={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}
@@ -75,8 +77,8 @@ export default class Cards extends Component {
             </div>
           </div>
           <div className="bottom-part">
-            <p>Min: {this.state.high}</p>
-            <p>Max: {this.state.low}</p>
+            <p>Min: {this.state.high}°</p>
+            <p>Max: {this.state.low}°</p>
           </div>
         </div>
       </div>

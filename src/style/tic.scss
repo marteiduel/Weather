@@ -1,4 +1,5 @@
 .board-wrapper {
+  margin-top: 126px;
   margin-bottom: 407px;
 }
 .game-name {
@@ -7,13 +8,13 @@
   justify-content: center;
   margin-bottom: 99px;
 }
-.board {
+.table {
   width: 30rem;
   height: 30rem;
   margin: auto;
-  border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
+  font-size: 30px;
 }
 
 td:hover {
@@ -26,4 +27,23 @@ td {
   height: 10rem;
   border: 1px solid black;
   box-sizing: border-box;
+}
+
+.score {
+  color: black;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  margin-top: 65px;
+}
+
+.xo {
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

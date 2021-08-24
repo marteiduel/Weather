@@ -6,7 +6,12 @@ export default class Header extends Component {
     return (
       <div className="header">
         <div className="right-header">
-          <img className="logo" src="./logo" />
+          <Link to="/weather">
+            <img
+              className="logo"
+              src="https://lh3.googleusercontent.com/7baaBNUuwoTPmSDdtwlkPrfLIaA7JS9g1_gZtt3gkCt6nadAanmQWDg9S9LO5kkEEA3d9QntkBsH2_xpPvTctQ7j2_fo9-sb1MjtZPycs6b0_XRbvo4mHodbweYhwWh-mg=w1280"
+            />
+          </Link>
           <div className="title">Current Page</div>
         </div>
         <div className="left-header">
@@ -17,7 +22,7 @@ export default class Header extends Component {
           <div className="current-page-tic">
             <Link to="/tic">Tic Tac Toe</Link>
           </div>
-
+          {/*
           <button className="button">
             <svg
               stroke="currentColor"
@@ -31,6 +36,7 @@ export default class Header extends Component {
               <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path>
             </svg>
           </button>
+*/}
         </div>
       </div>
     );

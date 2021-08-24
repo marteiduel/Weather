@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 
-import Header from "../comComps/header";
 import MainWeather from "./mainWeather";
 import SearchBar from "./searchBar";
 import Cards from "./weatherCards";
-import Footer from "../comComps/footer";
 
 export default class Weather extends Component {
   constructor(props) {

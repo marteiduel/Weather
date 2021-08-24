@@ -28,7 +28,7 @@ export default class MainWeather extends Component {
     fetch(
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
         this.props.ciudad +
-        "&units=metric&appid=" +
+        "&units=imperial&appid=" +
         "1b08555925c4b3f206e5d97823c01850"
     )
       .then((response) => {
@@ -52,10 +52,10 @@ export default class MainWeather extends Component {
       <div className="main-weather">
         <div className="weather-left">
           <div className="weather-info">
-            <p>Temperature: {this.state.temp}</p>
+            <p>Temperature: {this.state.temp}°</p>
             <p>Precipitation: {this.state.precip}%</p>
-            <p>High: {this.state.high}</p>
-            <p>Low: {this.state.low}</p>
+            <p>High: {this.state.high}°</p>
+            <p>Low: {this.state.low}°</p>
           </div>
         </div>
         <div className="image-main-weather">
